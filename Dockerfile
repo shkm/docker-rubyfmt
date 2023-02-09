@@ -7,7 +7,7 @@ ARG TARGET_PATH="/usr/local/bin/rubyfmt"
 
 RUN apt-get update && apt-get install -y wget
 
-RUN wget "https://github.com/fables-tales/rubyfmt/releases/download/v${VERSION}/${FILENAME}"
+RUN wget -q "https://github.com/fables-tales/rubyfmt/releases/download/v${VERSION}/${FILENAME}"
 
 RUN echo "${SHA256}  ${FILENAME}" | sha256sum -c &&\
       tar -xOf ${FILENAME} tmp/releases/v${VERSION}-Linux/rubyfmt > ${TARGET_PATH} &&\
